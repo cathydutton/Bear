@@ -1,0 +1,37 @@
+/* ==========================================================================
+
+// Grid File
+// Grid set up using the Maze Framework www.get-maze.co.uk.
+
+/* VARIABLES
+========================================================================== */
+
+$grid-columns: 12;
+$unit: (100%  / $grid-columns);
+$gutter: 2%;
+$push: 0 !default;
+
+/* MIXIN
+========================================================================== */
+
+@mixin grid($col,
+$push) {
+	@include boxsizing;
+	@include transition;
+	float: left;
+	width: (($unit * $col) - $gutter ) + ( $gutter / ( $grid-columns / $col) );
+	border: solid 1px #e3e3e3;
+	padding: 20px;
+	background: $base-color;
+	cursor: pointer;
+	margin-right: $gutter;
+	@if $push > 1 {
+		margin-left: (($unit * $push) ) + ( $gutter / ( $grid-columns / $push) );
+	}
+	&:last-child {
+		margin-right: 0;
+	}
+	&:hover {
+		background: $white;
+	}
+}

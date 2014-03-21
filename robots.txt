@@ -1,0 +1,7 @@
+user-agent: *
+allow: /
+sitemap: http://www.domain-name.co.uk/sitemap.xml
+
+
+
+

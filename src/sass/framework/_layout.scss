@@ -1,0 +1,32 @@
+/* ==========================================================================
+
+// Layout File
+// Layout file used to create the page structure.
+
+/* ========================================================================== */
+
+.logo {
+	@include grid(3, 0);
+	@include break(tablet, 100%);
+}
+.search {
+	@include grid(6, 0);
+	@include break(tablet, 50%);
+}
+.social-share {
+	@include grid(3, 0);
+	@include break(tablet, 50%);
+}
+.banner {
+	@include grid(12, 0);
+	@include break(tablet, 100%);
+}
+.tab {
+	@include grid(3, 0);
+	@include break(tablet, 50%);
+	@include break(mobile, 100%);
+}
+.content {
+	@include grid(6, 0);
+	@include break(tablet, 100%);
+}

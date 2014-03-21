@@ -1,0 +1,15 @@
+/* ==========================================================================
+
+// Color Manipulation File 
+// Existing color manipulation functions
+
+/* COLOR MANIPULATION
+========================================================================== */
+
+.foo darken($base-color, 20%);
+.foo lighten($base-color, 20%));
+.foo tint( $base-color, 10% );
+.foo shade( $base-color, 10% );
+.foo adjust-hue( $base-color, 20% );
+.foo saturate( $base-color, 20% ) 
+.foo desaturate( $base-color, 20% )

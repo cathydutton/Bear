@@ -1,0 +1,26 @@
+/* MAIN */
+
+	Developer: Cathy Dutton
+	Contact: info@cathydutton.co.uk
+	Twitter: @cathy_dutton
+	From: Warrington, UK
+
+
+
+/* THANKS */
+
+	htaccess: HTML 5 Boilerplate
+	Twitter: @h5bp
+	From: UK
+
+	normalize.css : Nicolas Gallagher
+	Twitter: @necolas
+	From: San Francisco
+
+		
+
+/* SITE */
+	Last update: 14/03/2014
+	Language: English 
+	Doctype: HTML5
+	IDE: Sublime Text, Sass, HTML
