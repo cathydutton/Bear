@@ -15,19 +15,3 @@
 /* BUTTONS
 ========================================================================== */
 
-.primary-btn {
-	@extend %btn;
-	background: $accent-color;
-	color: $white;
-	&:hover {
-		background: tint( $accent-color, 10% );
-	}
-}
-.secondary-btn {
-	@extend %btn;
-	background: $base-color;
-	color: $black;
-	&:hover {
-		background: tint( $base-color, 10% );
-	}
-}

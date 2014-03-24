@@ -16,6 +16,7 @@ $red: #FF0000;
 $white: #fff;
 $black: #000;
 $grey: #333;
+$light-grey:#ececec;
 
 /* Mark-up - selectors used throughout site. */
 $base-color: $orange;
@@ -24,35 +25,6 @@ $tertiary-color: $grey;
 $accent-color: $blue;
 $error-color: $blue;
 
-/* HEADING DEFAULTS
+
+/* TYPE DEFAULTS
 ========================================================================== */
-
-/* Headings */
-%heading: {
-  font: 'Roboto', sans-serif, light;
-}
-$primary-heading: {
-  @extend %heading;
-  font-size: 1.8em
-}
-$secondary-heading: {
-  @extend %heading;
-  font-size: 1.6em
-}
-$tertiary-heading: {
-  @extend %heading;
-  font-size: 1.4em
-}
-$sub-heading: {
-  @extend %heading;
-  font-size: 1.2em
-}
-
-/* Mark-up - Selectors used throughout site. */
-h1:$primary-heading;
-h2:$secondary-heading;
-h3:$tertiary-heading;
-h4:$sub-heading;
-
-.side-heading: {$tertiary-heading;}
-.footer-heading {$sub-heading;}

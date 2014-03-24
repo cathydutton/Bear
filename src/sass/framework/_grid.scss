@@ -20,18 +20,11 @@ $push) {
 	@include transition;
 	float: left;
 	width: (($unit * $col) - $gutter ) + ( $gutter / ( $grid-columns / $col) );
-	border: solid 1px #e3e3e3;
-	padding: 20px;
-	background: $base-color;
-	cursor: pointer;
 	margin-right: $gutter;
 	@if $push > 1 {
 		margin-left: (($unit * $push) ) + ( $gutter / ( $grid-columns / $push) );
 	}
 	&:last-child {
 		margin-right: 0;
-	}
-	&:hover {
-		background: $white;
 	}
 }

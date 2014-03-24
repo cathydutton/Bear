@@ -1,42 +1,61 @@
 /*!
  * Bear Gruntfile
- * http://www.cathydutton.co.uk
+ * http://gcathydutton.co.uk
  * @author Cathy Dutton
  */
 
 'use strict';
 
+/**
 
- var secret = {};
-  try {
-    secret = grunt.file.readJSON('secret.json');
-  } catch (err) {}
 
+ * Livereload and connect variables
+ */
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({
+  port: LIVERELOAD_PORT
+});
+var mountFolder = function (connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
+
+
+/**
+ * Grunt module
+ */
 module.exports = function (grunt) {
 
+  /**
+   * Dynamically load npm tasks
+   */
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+  /**
+   * FireShell Grunt config
+   */
   grunt.initConfig({
- 
+
     pkg: grunt.file.readJSON('package.json'),
-   
 
-
- // Set up project files
- 
+    /**
+     * Set project info
+     */
     project: {
       src: 'src',
       build: 'build',
-      server: 'test.dev',
       css: [
-        '<%= project.src %>/scss/style.scss'
+        '<%= project.src %>/sass/style.scss'
       ],
       js: [
         '<%= project.src %>/js/*.js'
       ]
     },
 
-   
-    //  Project banner
-    
+    /**
+     * Project banner
+     * Dynamically appended to CSS/JS files
+     * Inherits text from package.json
+     */
     tag: {
       banner: '/*!\n' +
               ' * <%= pkg.name %>\n' +
@@ -48,43 +67,29 @@ module.exports = function (grunt) {
               ' */\n'
     },
 
-    // Project configuration.
-grunt.initConfig({
-  connect: {
-    server: {
-      options: {
-        port: 800,
-        base: '/'
-      }
-    }
-  }
-});
-
+    /**
+     * Connect port/livereload
     
-   // Clean files and folders
-   
-    clean: {
-      build: [
-        '<%= project.build %>/css/style.unprefixed.css',
-        '<%= project.build %>/css/style.prefixed.css'
-      ]
-    },
-
-
-     // JSHint
-    jshint: {
-      files: [
-        'src/js/*.js',
-        'Gruntfile.js'
-      ],
+     */
+    connect: {
       options: {
-        jshintrc: '.jshintrc'
+        port: 80,
+        hostname: '*'
+      },
+      livereload: {
+        options: {
+          middleware: function (connect) {
+            return [lrSnippet, mountFolder(connect, 'app')];
+          }
+        }
       }
     },
 
    
-     // Concatenate JavaScript files
-     
+
+    /**
+     * Concatenate JavaScript files
+     */
     concat: {
       dev: {
         files: {
@@ -98,23 +103,23 @@ grunt.initConfig({
       }
     },
 
-    
-     // Uglify (minify) JavaScript files
-    
+    /**
+     * Uglify (minify) JavaScript files
+     */
     uglify: {
       options: {
-        banner: '<%= tag.banner %>'
+        banner: "<%= tag.banner %>"
       },
-      build: {
+      dist: {
         files: {
           '<%= project.build %>/js/scripts.min.js': '<%= project.js %>'
         }
       }
     },
 
- 
-     // Compile Sass/SCSS files
-    
+    /**
+     * Compile Sass/SCSS files
+     */
     sass: {
       dev: {
         options: {
@@ -122,80 +127,26 @@ grunt.initConfig({
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.build %>/css/style.unprefixed.css': '<%= project.css %>'
+          '<%= project.build %>/css/style.min.css': '<%= project.css %>'
         }
       },
-      build: {
+      dist: {
         options: {
-          style: 'expanded'
-        },
-        files: {
-          '<%= project.build %>/css/style.unprefixed.css': '<%= project.css %>'
-        }
-      }
-    },
-
-  
-     // Autoprefixer
-    
-    autoprefixer: {
-      options: {
-        browsers: [
-          'last 2 version',
-          'safari 6',
-          'ie 9',
-          'opera 12.1',
-          'ios 6',
-          'android 4'
-        ]
-      },
-      dev: {
-        files: {
-          '<%= project.build %>/css/style.min.css': ['<%= project.build %>/css/style.unprefixed.css']
-        }
-      },
-      build: {
-        files: {
-          '<%= project.build %>/css/style.prefixed.css': ['<%= project.build %>/css/style.unprefixed.css']
-        }
-      }
-    },
-
-   
-    // CSS minification
-    
-    cssmin: {
-      dev: {
-        options: {
+          style: 'compressed',
           banner: '<%= tag.banner %>'
         },
         files: {
-          '<%= project.build %>/css/style.min.css': [
-            '<%= project.src %>/components/normalize-css/normalize.css',
-            '<%= project.build %>/css/style.unprefixed.css'
-          ]
-        }
-      },
-      build: {
-        options: {
-          banner: '<%= tag.banner %>'
-        },
-        files: {
-          '<%= project.build %>/css/style.min.css': [
-            '<%= project.src %>/components/normalize-css/normalize.css',
-            '<%= project.build %>/css/style.prefixed.css'
-          ]
+          '<%= project.build %>/css/style.min.css': '<%= project.css %>'
         }
       }
     },
 
-
-
-   
-    // Open web server 
+    /**
+     * Opens the web server in the browser
+     */
     open: {
       server: {
-        path: 'http://<%= project.server %>'
+        path: 'http://bear.dev'
       }
     },
 
@@ -212,14 +163,14 @@ grunt.initConfig({
       },
       sass: {
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
+        tasks: ['sass:dev']
       },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '/{,*/}*.html',
+          '<%= project %>/{,*/}*.html',
           '<%= project.build %>/css/*.css',
           '<%= project.build %>/js/{,*/}*.js',
           '<%= project.build %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -228,44 +179,14 @@ grunt.initConfig({
     }
   });
 
-// Upload
-secret: grunt.file.readJSON('secret.json'),
-sftp: {
-  test: {
-    files: {
-      "./": "*json"
-    },
-    options: {
-      path: '/tmp/',
-      host: '<%= secret.host %>',
-      username: '<%= secret.username %>',
-      password: '<%= secret.password %>',
-      showProgress: true
-    }
-  }
-},
-sshexec: {
-  test: {
-    command: 'uptime',
-    options: {
-      host: '<%= secret.host %>',
-      username: '<%= secret.username %>',
-      password: '<%= secret.password %>'
-    }
-  }
-}
-
   /**
    * Default task
    * Run `grunt` on the command line
    */
   grunt.registerTask('default', [
     'sass:dev',
-    'cssmin:dev',
-    'autoprefixer:dev',
-    'jshint',
     'concat:dev',
-    'connect:livereload',
+     /*   'connect:livereload',  */
     'open',
     'watch'
   ]);
@@ -276,17 +197,8 @@ sshexec: {
    * Then compress all JS/CSS files
    */
   grunt.registerTask('build', [
-    'sass:build',
-    'autoprefixer:build',
-    'cssmin:build',
-    'clean:build',
-    'jshint',
+    'sass:dist',
     'uglify'
-  ]);
-
-   grunt.registerTask('production', [
-  'sftp:test',
-  'sshexec:test'
   ]);
 
 };

@@ -1,6 +1,15 @@
 /* ==========================================================================
 
 // Main Content  File 
-// Theme styles for the website content.
+// Website theme styles.
 
 /* ========================================================================== */
+
+body{
+background-image:  url(/build/img/logo-orange.gif);
+background-image:  none,url(/build/img/logo-orange.svg), url(/build/img/logo-orange.gif);
+background-position:  center 100px;
+background-repeat: no-repeat;
+background-color:$light-grey;
+height:100%;
+}

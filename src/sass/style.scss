@@ -9,13 +9,12 @@
 ========================================================================== */
 
 	@import 'vendor/_normalize.scss';
-	@import 'vendor/_font-awesome.scss;
 
 
 /* Base - Base variable file along with starting points mixins & placeholders.
 ========================================================================== */
 
-	@import 'base/_base.scss'; // base file base-color: $orange etc, headings etc
+	@import 'base/_base.scss'; 
 	@import 'base/_mixins.scss';
 	@import 'base/_placeholders.scss';
 	
@@ -24,7 +23,7 @@
 /* FRAMEWORK - Structure & layout files including the Maze grid function.
 ========================================================================== */
 
-	@import 'framework/_grid.scss'; // Maze framework.
+	@import 'framework/_grid.scss'; 
 	@import 'framework/_layout.scss';
 	@import 'framework/_breakpoints.scss';
 
@@ -34,13 +33,12 @@
 
 	@import 'modules/_buttons.scss';
 	@import 'modules/_lists.scss';
-	@import 'modules/_typography.scss';
-	@import 'modules/_color-manipulation.scss'; // All colour manipulation techniques.
+	@import 'modules/_color-manipulation.scss'; 
 
 
 /* Theme - Theme styles for each area of the site.
 ========================================================================== */
-
+	@import 'theme/_main.scss';
 	@import 'theme/_header.scss';
 	@import 'theme/_nav.scss';
 	@import 'theme/_main.scss';
