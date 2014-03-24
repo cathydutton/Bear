@@ -1,2 +1,6 @@
 .sass-cache
 node_modules
+
+# Ignore source folder - un-comment for live deployment.
+
+# src
