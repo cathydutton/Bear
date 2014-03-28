@@ -16,6 +16,10 @@
 	normalize.css : Nicolas Gallagher
 	Twitter: @necolas
 	From: San Francisco
+	
+	Gruntfile.js : Todd Motto
+	Twitter: @toddmotto
+
 
 		
 
