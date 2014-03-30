@@ -1,16 +1,12 @@
 /*!
  * Bear Gruntfile
- * http://gcathydutton.co.uk
+ * http://cathydutton.co.uk
  * @author Cathy Dutton
  */
 
 'use strict';
 
-/**
-
-
- * Livereload and connect variables
- */
+/**  Livereload and connect variables */
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({
   port: LIVERELOAD_PORT
@@ -20,14 +16,10 @@ var mountFolder = function (connect, dir) {
 };
 
 
-/**
- * Grunt module
- */
+/*  * Grunt module */
 module.exports = function (grunt) {
 
-  /**
-   * Dynamically load npm tasks
-   */
+  /** * Dynamically load npm tasks */
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 
@@ -35,9 +27,7 @@ module.exports = function (grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    /**
-     * Set project info
-     */
+    /** * Set project info  */
     project: {
       src: 'src',
       build: 'build',
@@ -49,11 +39,7 @@ module.exports = function (grunt) {
       ]
     },
 
-    /**
-     * Project banner
-     * Dynamically appended to CSS/JS files
-     * Inherits text from package.json
-     */
+    /** * Project banner */
     tag: {
       banner: '/*!\n' +
               ' * <%= pkg.name %>\n' +
@@ -65,13 +51,11 @@ module.exports = function (grunt) {
               ' */\n'
     },
 
-    /**
-     * Connect port/livereload
-    
-     */
+    /** * Connect port/livereload */
     connect: {
       options: {
-        port: 80,
+        // Change to port of chioce - port: 80,
+         port: 9000,
         hostname: '*'
       },
       livereload: {
@@ -83,11 +67,7 @@ module.exports = function (grunt) {
       }
     },
 
-   
-
-    /**
-     * Concatenate JavaScript files
-     */
+/** * Concatenate JavaScript files */
     concat: {
       dev: {
         files: {
@@ -101,9 +81,7 @@ module.exports = function (grunt) {
       }
     },
 
-    /**
-     * Uglify (minify) JavaScript files
-     */
+    /** * Uglify (minify) JavaScript files */
     uglify: {
       options: {
         banner: "<%= tag.banner %>"
@@ -115,9 +93,7 @@ module.exports = function (grunt) {
       }
     },
 
-    /**
-     * Compile Sass/SCSS files
-     */
+    /** * Compile Sass/SCSS files */
     sass: {
       dev: {
         options: {
@@ -139,21 +115,15 @@ module.exports = function (grunt) {
       }
     },
 
-    /**
-     * Opens the web server in the browser
-     */
+    /** * Opens the web server in the browser */
     open: {
       server: {
-        path: 'http://bear.dev'
+        path: 'http://localhost:<%= connect.options.port %>'
+       // Change to local dev set up -  path: 'http://bear.dev'
       }
     },
 
-    /**
-     * Runs tasks against changed watched files
-     * https://github.com/gruntjs/grunt-contrib-watch
-     * Watching development files and run concat/compile tasks
-     * Livereload the browser once complete
-     */
+    /** * Run tasks  */
        watch: {
       concat: {
         files: '<%= project.src %>/js/{,*/}*.js',
@@ -177,10 +147,7 @@ module.exports = function (grunt) {
     }
   });
 
-  /**
-   * Default task
-   * Run `grunt` on the command line
-   */
+  /** * Default task */
   grunt.registerTask('default', [
     'sass:dev',
     'concat:dev',
@@ -188,11 +155,7 @@ module.exports = function (grunt) {
     'watch'
   ]);
 
-  /**
-   * Build task
-   * Run `grunt build` on the command line
-   * Then compress all JS/CSS files
-   */
+  /** * Build task */
   grunt.registerTask('build', [
     'sass:dist',
     'uglify'
