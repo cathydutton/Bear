@@ -13,6 +13,17 @@
 	*behavior: url(boxsizing.htc);
 }
 
+/* CLEARFIX - 
+========================================================================== */
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 /* CSS3 PROPERTIES -
 ========================================================================== */
 
@@ -36,8 +47,7 @@
 /* LINEAR GRADIENT -
 ========================================================================== */
 
-@mixin gradient ($top,
-$bottom) {
+@mixin gradient ($top, $bottom) {
 	/* IE10 Consumer Preview */
 	background-image: -ms-linear-gradient(top left, $top 0%, $bottom 100%); /* Mozilla Firefox */
 	background-image: -moz-linear-gradient(top left, $top 0%, $bottom 100%); /* Opera */

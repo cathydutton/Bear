@@ -439,6 +439,8 @@ th {
 
 /* BOX SIZEING -
 ========================================================================== */
+/* CLEARFIX - 
+========================================================================== */
 /* CSS3 PROPERTIES -
 ========================================================================== */
 /* LINEAR GRADIENT -
@@ -464,12 +466,6 @@ th {
 ========================================================================== */
 /* ==========================================================================
 
-// Layout File
-// Layout file used to create the page structure.
-
-/* ========================================================================== */
-/* ==========================================================================
-
 // Breakpoint File
 // Add new or make changes to existing breakpoints.
 
@@ -477,6 +473,35 @@ th {
 ========================================================================== */
 /* MIXIN -
 ========================================================================== */
+/* ==========================================================================
+
+// Layout File
+// Layout file used to create the page structure.
+
+/* ========================================================================== */
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(boxsizing.htc);
+}
+
+body {
+  overflow-y: scroll;
+}
+
+.wrapper {
+  max-width: 1240px;
+  min-width: 460px;
+}
+.wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 /* MODULES - Individual site elements.
 ========================================================================== */
 /* ==========================================================================
@@ -486,8 +511,57 @@ th {
 
 /* PLACEHOLDER 
 ========================================================================== */
+.cta-btn, .main-btn, .info-btn {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  /* future proofing */
+  -khtml-border-radius: 3px;
+  /* for old Konqueror browsers */
+  -moz-transition: all 1s ease-in;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  padding: 10px;
+  color: white;
+  curser: pointer;
+  border: none;
+  shadow: none;
+  font-size: 14px;
+  width: 150px;
+  text-align: left;
+  margin: 5px 0;
+  text-align: center;
+  display: block;
+}
+
+/* BUTTON MIXIN 
+========================================================================== */
 /* BUTTONS
 ========================================================================== */
+.cta-btn {
+  background-color: #c1d72e;
+}
+.cta-btn:hover {
+  background-color: #cedf59;
+  color: #f3f3f3;
+}
+
+.main-btn {
+  background-color: #ffa600;
+}
+.main-btn:hover {
+  background-color: #ffb833;
+  color: #f3f3f3;
+}
+
+.info-btn {
+  background-color: #82d2e5;
+}
+.info-btn:hover {
+  background-color: #ace1ee;
+  color: #f3f3f3;
+}
+
 /* ==========================================================================
 
 // Lists File 

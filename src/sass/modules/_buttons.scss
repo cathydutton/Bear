@@ -7,11 +7,47 @@
 ========================================================================== */
 
 %btn {
-	text-align: center;
-	padding: 10px 15px;
+	@include rounded-corners(3px);
+	@include fade;
+	padding: 10px;
+	color:$white;
 	curser: pointer;
+	border:none;
+	shadow:none;
+	font-size:14px;
+	width:150px;
+	text-align:left;
+	margin:5px 0;
+    text-align:center;
+    display:block;
 }
+
+
+/* BUTTON MIXIN 
+========================================================================== */
+
+@mixin  btn-background($btn-background) {
+	@extend %btn;
+	background-color: $btn-background;
+	&:hover {
+		background-color: lighten($btn-background,10% );
+    color:#f3f3f3;
+	}
+}
+
 
 /* BUTTONS
 ========================================================================== */
 
+.cta-btn {
+	@include btn-background($green);
+}
+
+.main-btn {
+	@include btn-background($orange);
+}
+
+
+.info-btn {
+	@include btn-background($blue);
+}

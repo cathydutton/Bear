@@ -54,8 +54,8 @@ module.exports = function (grunt) {
     /** * Connect port/livereload */
     connect: {
       options: {
-        // Change to port of chioce - port: 80,
          port: 9000,
+         // port: 80,
         hostname: '*'
       },
       livereload: {
@@ -118,8 +118,8 @@ module.exports = function (grunt) {
     /** * Opens the web server in the browser */
     open: {
       server: {
-        path: 'http://localhost:<%= connect.options.port %>'
-       // Change to local dev set up -  path: 'http://bear.dev'
+       path: 'http://localhost:<%= connect.options.port %>'
+       // path: 'http://bear.dev:<%= connect.options.port %>'
       }
     },
 

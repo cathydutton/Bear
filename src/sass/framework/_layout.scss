@@ -9,8 +9,7 @@
 *,
 *:after,
 *:before {
-  @include box-size;
- /* overflow-y: scroll;*/
+  @include boxsizing;
 }
 
 body{
@@ -20,5 +19,5 @@ body{
 .wrapper{
 max-width: $break-wide;
 min-width: ($break-mobile - 20px);
-
+@include clearfix;
 }
