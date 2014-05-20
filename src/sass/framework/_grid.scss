@@ -14,17 +14,25 @@ $push: 0 !default;
 /* MIXIN
 ========================================================================== */
 
-@mixin grid($col,
-$push) {
-	@include boxsizing;
-	@include transition;
-	float: left;
-	width: (($unit * $col) - $gutter ) + ( $gutter / ( $grid-columns / $col) );
-	margin-right: $gutter;
-	@if $push > 1 {
-		margin-left: (($unit * $push) ) + ( $gutter / ( $grid-columns / $push) );
-	}
-	&:last-child {
-		margin-right: 0;
-	}
+@mixin grid($col, $fold:"left", $push:$push) {
+        @include transition;
+        float:#{$fold};
+        background: $base-color;
+        width: (($unit * $col) - $gutter ) + ( $gutter / ( $grid-columns / $col) );
+        @if $push > 1 {
+                margin-left: (($unit * $push) ) + ( $gutter / ( $grid-columns / $push) );
+        }
+        @if $fold == left {
+                margin-right: $gutter;
+                &:last-child {
+                        margin-right: 0;
+                }
+        }
+        @if $fold == right {
+                margin-left: $gutter;
+                &:last-child {
+                        margin-left: 0;
+                }
+        }
+ 
 }

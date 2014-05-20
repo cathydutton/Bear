@@ -6,3 +6,19 @@
 /* ========================================================================== */
 
 
+*,
+*:after,
+*:before {
+  @include box-size;
+ /* overflow-y: scroll;*/
+}
+
+body{
+	overflow-y: scroll;
+}
+
+.wrapper{
+max-width: $break-wide;
+min-width: ($break-mobile - 20px);
+
+}

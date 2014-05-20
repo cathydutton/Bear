@@ -5,25 +5,24 @@
 
 /* VARIABLES -
 ========================================================================== */
-
-$break-large: 767px;
-$break-small: 480px;
+$break-wide: 1240px;
+$break-desktop: 990px;
+$break-tablet: 767px;
+$break-mobile: 480px;
 
 /* MIXIN -
 ========================================================================== */
 
-@mixin break($media,
-$width) {
+@mixin break($media, $col) {
 	@if $media == tablet {
-		@media only screen and (max-width:$break-large) {
-			width: $width - $gutter;
-			margin-left: 0;
+		@media only screen and (max-width:$break-tablet) {
+			width: (($unit * $col) - $gutter ) ;
 			margin: $gutter / 2;
 		}
 	}
 	@else if $media == mobile {
-		@media only screen and (max-width:$break-small) {
-			width: $width - $gutter;
+		@media only screen and (max-width:$break-mobile) {
+			width: (($unit * $col) - $gutter ) ;
 			margin: $gutter / 2;
 		}
 	}
