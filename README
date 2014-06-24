@@ -4,7 +4,7 @@
 
 Bear is a starting point for any web project. It includes a Sass folder structure and start up grid along with Gulp set up and configuration.
 
-### Getting Started
+## Getting Started
 
 npm install gulp -g
 
@@ -17,7 +17,7 @@ If you have any questions get in touch:
 -   [@cathydutton](http://twitter.com/cathydutton)
 
 
-### Features
+## Features
 
 * HTML5.
 * Cross-browser compatible (Chrome, Firefox, IE9+, Safari).
@@ -30,7 +30,7 @@ V2.0.1 (25/06/2014) - Rebuild using Gulp to replace Grunt.
 
 
 
-### License
+## License
 ```
 The MIT License (MIT)
 
