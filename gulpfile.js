@@ -92,8 +92,7 @@ gulp.task('watch', function() {
 // Open task
 gulp.task("open", function(){
   var options = {
-    url: "http://bear.dev/",
-    // app: "firefox"
+    url: "http://project.dev/",
   };
   gulp.src("./index.html")
   .pipe(open("", options));
@@ -102,7 +101,7 @@ gulp.task("open", function(){
 
 gulp.task('deploy', function () {
      // return gulp.src('**/*')
-        return gulp.src(['*.html', 'build/styles/**/*.min.css', 'build/scripts/**/*min.js', 'build/images/**/*'])
+        return gulp.src(['*.html', 'build/css/**/*.min.css', 'build/js/**/*min.js', 'build/img/**/*'])
         .pipe(sftp({ 
             host: 'ftp.domain-name.co.uk',            
             auth: 'keyMain'
@@ -122,7 +121,7 @@ gulp.task('live', ['deploy']);
 
 // Clean Task
 gulp.task('clean', function() {
-  return gulp.src(['build/styles/', 'build/scripts', 'build/images'], {read: false})
+  return gulp.src(['build/css/', 'build/js', 'build/ig'], {read: false})
     .pipe(clean());
 });
 
