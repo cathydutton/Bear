@@ -24,7 +24,7 @@ If you have any questions get in touch:
 * Cross-browser compatible (Chrome, Firefox, IE9+, Safari).
 * Sass
 
-### Log
+## Log
 
 * V1.0.1 (21/03/2014) - Upload first version for testing.
 * V2.0.1 (25/06/2014) - Rebuild using Gulp to replace Grunt.
