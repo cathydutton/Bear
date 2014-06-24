@@ -12,9 +12,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     open = require('gulp-open'),
-    sftp = require('gulp-sftp'),
-    gulpLoadPlugins = require('gulp-load-plugins');
-
+    sftp = require('gulp-sftp');
 
 
 // Run git init 
