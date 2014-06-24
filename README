@@ -2,8 +2,13 @@
 # Cathy Dutton
 # http://www.cathydutton.co.uk
 
-Bear is a starting point for any web project. It includes a Sass folder structure and start up grid.
+Bear is a starting point for any web project. It includes a Sass folder structure and start up grid along with Gulp set up and configuration.
 
+### Getting Started
+
+npm install gulp -g
+
+npm install gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-rename gulp-cache gulp-livereload gulp-open gulp-sftp --save-dev
 
 ### Support
 If you have any questions get in touch:
@@ -21,6 +26,7 @@ If you have any questions get in touch:
 ### Log
 
 V1.0.1 (21/03/2014) - Upload first version for testing.
+V2.0.1 (25/06/2014) - Rebuild using Gulp to replace Grunt.
 
 
 
