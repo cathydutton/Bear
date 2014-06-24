@@ -1,6 +1,4 @@
 # Bear
-# Cathy Dutton
-# http://www.cathydutton.co.uk
 
 Bear is a starting point for any web project. It includes a Sass folder structure and start up grid along with Gulp set up and configuration.
 
