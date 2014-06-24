@@ -1,12 +1,3 @@
-/*!
- * Bear
- * Base Website Files
- * http://cathydutton.co.uk
- * @author Cathy Dutton
- * @version 1.1.0
- * Copyright 20134. MIT licensed.
- */
-
 /* ==========================================================================
 
   	Bear Scss Structure 
@@ -211,6 +202,7 @@ figure {
  */
 hr {
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -327,6 +319,8 @@ input {
  */
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -430,8 +424,6 @@ th {
 ========================================================================== */
 /* Colours -  Defined only once */
 /* Mark-up - selectors used throughout site. */
-/* TYPE DEFAULTS
-========================================================================== */
 /* ==========================================================================
 
 // Mixin File
@@ -512,8 +504,6 @@ body {
 /* PLACEHOLDER 
 ========================================================================== */
 .cta-btn, .main-btn, .info-btn {
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   /* future proofing */
   -khtml-border-radius: 3px;

@@ -1,6 +1,8 @@
 .sass-cache
 node_modules
+gulpfile.js
+package.json
+.ftppass
+.jshintrc
+src
 
-# Ignore source folder - un-comment for live deployment.
-
-# src
