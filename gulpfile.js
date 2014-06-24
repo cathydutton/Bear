@@ -65,9 +65,6 @@ gulp.task('html', function() {
 })
 
 
-
-
-
 // Build task
 gulp.task('build', function() {
     gulp.start('styles', 'scripts', 'images');
@@ -91,7 +88,9 @@ gulp.task('watch', function() {
 
 });
 
-gulp.task("url", function(){
+
+// Open task
+gulp.task("open", function(){
   var options = {
     url: "http://bear.dev/",
     // app: "firefox"
@@ -101,21 +100,24 @@ gulp.task("url", function(){
 });
 
 
-
 gulp.task('deploy', function () {
      // return gulp.src('**/*')
         return gulp.src(['*.html', 'build/styles/**/*.min.css', 'build/scripts/**/*min.js', 'build/images/**/*'])
         .pipe(sftp({ 
-            host: 'ftp.cathydutton.co.uk',            
+            host: 'ftp.domain-name.co.uk',            
             auth: 'keyMain'
         }));
 });
 
 
+/* TASKS
+========================================================================== */
 
-gulp.task('default', [ 'url', 'watch', 'build' ]);
 
+// Default task
+gulp.task('default', [ 'open', 'watch', 'build' ]);
 
+//Deploy task
 gulp.task('live', ['deploy']);
 
 // Clean Task
