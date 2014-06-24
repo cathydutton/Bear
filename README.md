@@ -6,11 +6,10 @@ Bear is a starting point for any web project. It includes a Sass folder structur
 
 In the terminal navigate to the root directory of the project and run the command below...
 
-  npm install gulp -g
-
-Then install the plugins below...
-
+```
   npm install gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-rename gulp-cache gulp-livereload gulp-open gulp-sftp --save-dev
+```
+
 
 ### Support
 If you have any questions get in touch:
