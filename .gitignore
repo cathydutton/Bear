@@ -2,11 +2,9 @@
 node_modules
 
 
-#
-gulpfile.js
-package.json
-.ftppass
-.jshintrc
-src
+# gulpfile.js
+# package.json
+# .ftppass
+# .jshintrc
+# src
 
-#
