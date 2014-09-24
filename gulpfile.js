@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
+    open = require("gulp-open"),
     scsslint = require('gulp-scss-lint');
 
 
