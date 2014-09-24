@@ -10,16 +10,16 @@
 	@include rounded-corners(3px);
 	@include fade;
 	padding: 10px;
-	color:$white;
+	color: $white;
 	curser: pointer;
-	border:none;
-	shadow:none;
-	font-size:14px;
-	width:150px;
-	text-align:left;
-	margin:5px 0;
-    text-align:center;
-    display:block;
+	border: none;
+	shadow: none;
+	font-size: 14px;
+	width: 150px;
+	text-align: left;
+	margin: 5px 0;
+    text-align: center;
+    display: block;
 }
 
 
@@ -29,9 +29,10 @@
 @mixin  btn-background($btn-background) {
 	@extend %btn;
 	background-color: $btn-background;
+	
 	&:hover {
 		background-color: lighten($btn-background,10% );
-    color:#f3f3f3;
+    	color:#f3f3f3;
 	}
 }
 

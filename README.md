@@ -7,7 +7,19 @@ Bear is a starting point for any web project. It includes a Sass folder structur
 In the terminal navigate to the root directory of the project and run the command below...
 
 ```
-  npm install gulp gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-clean gulp-rename gulp-cache gulp-livereload gulp-open gulp-sftp --save-dev
+  npm install
+```
+
+To run Gulp type the command...
+
+```
+  gulp
+```
+
+To run Sass Lint type the command...
+
+```
+  gulp lint
 ```
 
 
@@ -28,6 +40,7 @@ If you have any questions get in touch:
 
 * V1.0.1 (21/03/2014) - Upload first version for testing.
 * V2.0.1 (25/06/2014) - Rebuild using Gulp to replace Grunt.
+* V2.0.2 (24/09/2014) - Remove FTP, Add Sass Lint, Refactor 
 
 
 

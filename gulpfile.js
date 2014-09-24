@@ -11,8 +11,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
-    open = require('gulp-open'),
-    sftp = require('gulp-sftp');
+    scsslint = require('gulp-scss-lint');
+
 
 
 // Run git init 
@@ -39,7 +39,7 @@ gulp.task('scripts', function() {
   return gulp.src('src/js/**/*.js')
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
-    .pipe(concat('main.js'))
+    .pipe(concat('scripts.js'))
     .pipe(gulp.dest('build/js'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
@@ -90,21 +90,19 @@ gulp.task('watch', function() {
 // Open task
 gulp.task("open", function(){
   var options = {
-    url: "http://project.dev/",
+    // url: "http://project.dev/",
   };
   gulp.src("./index.html")
   .pipe(open("", options));
 });
 
+// Lint
 
-gulp.task('deploy', function () {
-     // return gulp.src('**/*')
-        return gulp.src(['*.html', 'build/css/**/*.min.css', 'build/js/**/*min.js', 'build/img/**/*'])
-        .pipe(sftp({ 
-            host: 'ftp.domain-name.co.uk',            
-            auth: 'keyMain'
-        }));
+gulp.task('lint', function() {
+  gulp.src('src/sass/**/*.scss')
+    .pipe(scsslint());
 });
+
 
 
 /* TASKS
@@ -114,8 +112,6 @@ gulp.task('deploy', function () {
 // Default task
 gulp.task('default', [ 'open', 'watch', 'build' ]);
 
-//Deploy task
-gulp.task('live', ['deploy']);
 
 // Clean Task
 gulp.task('clean', function() {

@@ -5,11 +5,13 @@
 
 /* ========================================================================== */
 
-body{
-background-image:  url(/build/img/logo-orange.gif);
-background-image:  none,url(/build/img/logo-orange.svg), url(/build/img/logo-orange.gif);
-background-position:  center 100px;
-background-repeat: no-repeat;
-background-color:$light-grey;
-height:100%;
+body {
+	background: $light-grey;
+	height: 100%;
+}
+
+header img {
+	position: absolute;
+	left: 40%;
+	top: 20%;
 }
