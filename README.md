@@ -13,10 +13,16 @@ In the terminal navigate to the root directory of the project and run the comman
 To run Gulp type the command...
 
 ```
-  gulp
+gulp
 ```
 
-To run Sass Lint type the command...
+To run Sass Lint first install scss-lint... 
+
+```
+ gem install scss-lint
+```
+
+Then run gulp lint in the project root...
 
 ```
   gulp lint
