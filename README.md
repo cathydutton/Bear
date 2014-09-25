@@ -4,7 +4,7 @@ Bear is a starting point for any web project. It includes a Sass folder structur
 
 ## Getting Started
 
-In the terminal navigate to the root directory of the project and run the command below...
+Firstly make sure Gulp is installed, then in the terminal navigate to the root directory of the project and run the command below...
 
 ```
   npm install
