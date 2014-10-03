@@ -41,14 +41,14 @@
 ========================================================================== */
 
 .cta-btn {
-	@include btn-background($green);
+	@include btn-background($primary-color);
 }
 
 .main-btn {
-	@include btn-background($orange);
+	@include btn-background($secondary-color);
 }
 
 
 .info-btn {
-	@include btn-background($blue);
+	@include btn-background($tertiary-color);
 }
