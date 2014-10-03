@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     open = require("gulp-open"),
+    plumber = require('gulp-plumber'),
     scsslint = require('gulp-scss-lint');
 
 
@@ -22,10 +23,18 @@ gulp.task('init', function(){
   git.init();
 });
 
+// Error
+var onError = function (err) {  
+  gutil.beep();
+  console.log(err);
+};
 
 // Styles
 gulp.task('styles', function() {
   return gulp.src('src/sass/style.scss')
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(sass({ style: 'expanded', }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(gulp.dest('build/css'))
@@ -38,6 +47,9 @@ gulp.task('styles', function() {
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src('src/js/**/*.js')
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(concat('scripts.js'))
