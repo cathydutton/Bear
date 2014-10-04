@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     open = require("gulp-open"),
+    gutil = require('gulp-util'),
     plumber = require('gulp-plumber'),
     scsslint = require('gulp-scss-lint');
 
