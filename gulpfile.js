@@ -79,7 +79,7 @@ gulp.task('html', function() {
 
 // Build task
 gulp.task('build', function() {
-    gulp.start('styles', 'scripts', 'images');
+    gulp.start('styles', 'scripts', 'images', 'html');
 });
 
 
