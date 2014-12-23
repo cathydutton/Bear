@@ -13,7 +13,7 @@ npm install --global gulp
 Install gulp in your project devDependencies...
 
 ```
-  npm install
+  npm install --save-dev gulp
 ```
 
 To run Gulp type the command...
