@@ -48,6 +48,9 @@
 
 /* VARIABLES
 ========================================================================== */
+/* Grid Defaults */
+/* Breakpoints */
+/* Widths */
 /* MIXIN
 ========================================================================== */
 /* ==========================================================================
@@ -80,8 +83,8 @@ body {
 }
 
 .wrapper {
-  max-width: 1240px;
-  min-width: 460px;
+  max-width: 1180px;
+  min-width: 380px;
 }
 .wrapper:after {
   content: "";
@@ -108,12 +111,10 @@ body {
   -webkit-transition: all 0.3s ease-in-out;
   padding: 10px;
   color: #fff;
-  curser: pointer;
+  cursor: pointer;
   border: none;
-  shadow: none;
   font-size: 14px;
   width: 150px;
-  text-align: left;
   margin: 5px 0;
   text-align: center;
   display: block;
@@ -124,26 +125,26 @@ body {
 /* BUTTONS
 ========================================================================== */
 .cta-btn {
-  background-color: #c1d72e;
-}
-.cta-btn:hover {
-  background-color: #cedf59;
-  color: #f3f3f3;
-}
-
-.main-btn {
   background-color: #ffa600;
 }
-.main-btn:hover {
+.cta-btn:hover {
   background-color: #ffb833;
   color: #f3f3f3;
 }
 
+.main-btn {
+  background-color: #c1d72e;
+}
+.main-btn:hover {
+  background-color: #cedf59;
+  color: #f3f3f3;
+}
+
 .info-btn {
-  background-color: #82d2e5;
+  background-color: #333;
 }
 .info-btn:hover {
-  background-color: #ace1ee;
+  background-color: #4d4d4d;
   color: #f3f3f3;
 }
 
