@@ -20,11 +20,10 @@ $break-mobile: 400px;
 
 /* Min & Max Widths */
 
-$gutter-unit:  $gutter / 1%; 
-$wrapper-gutter-percentage: ($break-wide / 100)  * $gutter-unit;
+$gutter-unit:  $gutter / 1%;   /* Strip percentage from gutter */
+$wrapper-gutter-percentage: ($break-wide / 100)  * $gutter-unit;   /* Work out 1% of $break-wide */
 
-
-$max-width: $break-wide + $wrapper-gutter-percentage;
+$max-width: $break-wide + $wrapper-gutter-percentage; /* Add gutter value to $max-width */
 $min-width: $break-mobile - 20px;
 
 

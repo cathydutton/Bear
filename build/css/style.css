@@ -50,7 +50,10 @@
 ========================================================================== */
 /* Grid Defaults */
 /* Breakpoints */
-/* Widths */
+/* Min & Max Widths */
+/* Strip percentage from gutter */
+/* Work out 1% of $break-wide */
+/* Add gutter value to $max-width */
 /* MIXIN
 ========================================================================== */
 /* ==========================================================================
@@ -83,7 +86,8 @@ body {
 }
 
 .wrapper {
-  max-width: 1180px;
+  margin: 0 auto;
+  max-width: 1203.6px;
   min-width: 380px;
 }
 .wrapper:after {
