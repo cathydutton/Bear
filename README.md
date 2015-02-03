@@ -4,16 +4,10 @@ Bear is a starting point for any web project. It includes a Sass folder structur
 
 ## Getting Started
 
-Install gulp globally...
+Install gulp and the relevant plugins...
 
 ```
-npm install --global gulp
-```
-
-Install gulp in your project devDependencies...
-
-```
-  npm install --save-dev gulp
+npm install 
 ```
 
 To run Gulp type the command...
@@ -24,11 +18,6 @@ gulp
 
 To run Sass Lint first install scss-lint... 
 
-```
- gem install scss-lint
-```
-
-Then run gulp lint in the project root...
 
 ```
   gulp lint
