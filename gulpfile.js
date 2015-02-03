@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     livereload = require('gulp-livereload'),
     open = require("gulp-open"),
+    plumber = require('gulp-plumber'),
     scsslint = require('gulp-scss-lint');
 
 
@@ -26,6 +27,7 @@ gulp.task('init', function(){
 // Styles
 gulp.task('styles', function() {
   return gulp.src('src/sass/style.scss')
+     .pipe(plumber())
     .pipe(sass({ style: 'expanded', }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(gulp.dest('build/css'))
@@ -38,6 +40,7 @@ gulp.task('styles', function() {
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src('src/js/**/*.js')
+     .pipe(plumber())
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(concat('scripts.js'))
@@ -51,6 +54,7 @@ gulp.task('scripts', function() {
 // Images
 gulp.task('images', function() {
   return gulp.src('src/img/**/*')
+     .pipe(plumber())
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
     .pipe(gulp.dest('build/img'))
     .pipe(livereload());
@@ -59,6 +63,7 @@ gulp.task('images', function() {
 // HTML
 gulp.task('html', function() {
     return gulp.src("*.html")
+        .pipe(plumber())
         .pipe(gulp.dest(''))
         .pipe(livereload());
 })
