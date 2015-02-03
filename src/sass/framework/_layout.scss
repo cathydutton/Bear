@@ -18,6 +18,8 @@ body {
 
 .wrapper {
 	@include clearfix;
-	max-width: $break-wide;
-	min-width: ($break-mobile - 20px);
+	margin: 0 auto;
+	max-width: $max-width;
+	min-width: $min-width;
+}
 }
