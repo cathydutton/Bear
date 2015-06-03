@@ -4,6 +4,12 @@ Bear is a starting point for any web project. It includes a Sass folder structur
 
 ## Getting Started
 
+If Gulp is not already installed run
+
+```
+npm install --global gulp
+```
+
 Install gulp and the relevant plugins...
 
 ```
