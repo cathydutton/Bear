@@ -8,4 +8,9 @@ section {
   @include clearfix;
   padding: 1% 5%;
   width: 100%;
+
+  @include mq(break-desktop) {
+    padding: 0;
+  }
+  
 }
