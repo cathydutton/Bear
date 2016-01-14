@@ -1,0 +1,15 @@
+/*
+    Main browser styles
+    ----------------------------------- */
+
+@import '1-settings';
+@import '2-tools';
+@import '3-generic';
+@import '4-base';
+@import '4.1-base-typography';
+@import '5-layout';
+
+ /* Modules */
+@import '7-component-header';
+
+ /* Add all new partials to main.scss */

@@ -1,10 +1,4 @@
+dist
+node_modules/
 .sass-cache
-node_modules
-
-
-# gulpfile.js
-# package.json
-# .ftppass
-# .jshintrc
-# src
-
+*.log

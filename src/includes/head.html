@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en-GB">
+
+<!--
+
+##:::: ##: ####: ########::  ########::::  ###. ###:: ########::::
+##:::: ##:. ##:: ##.... ##:. ##.....::::: ##: ##: ##: ##.....:::::
+##:::: ##:: ##:: ##:::: ##:: ##:::::::::: ##: ##: ##: ##::::::::::
+#########:: ##:: ########::: ######:::::: ##: ##: ##: ######::::::
+##.... ##:: ##:: ##.. ##:::: ##...::::::: ##: ##: ##: ##...:::::::
+##:::: ##:: ##:: ##::. ##::: ##:::::::::: ##: ##: ##: ##::::::::::
+##:::: ##: ####: ##:::. ##:  ########:::: ##::::: ##: ########::::
+
+For Freelance or Open Source projects contact info@cathydutton.co.uk
+https://github.com/cathydutton
+
+-->
+
+	<head>
+		<meta charset="utf-8">
+		<title>@@title</title>
+		<meta name="description" content="@@description">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Cathy Dutton - www.cathydutton.co.uk" />
+		<link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+		<!-- inject:css -->
+		<!-- endinject -->
+		<script>
+		    /*!
+		    loadCSS: load a CSS file asynchronously.
+		    [c]2014 @scottjehl, Filament Group, Inc.
+		    Licensed MIT
+		    */
+		    function loadCSS( href, before, media ){
+		        "use strict";
+		        var ss = window.document.createElement( "link" );
+		        var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
+		        var sheets = window.document.styleSheets;
+		        ss.rel = "stylesheet";
+		        ss.href = href;
+		        ss.media = "only x";
+		        ref.parentNode.insertBefore( ss, ref );
+		        function toggleMedia(){
+		            var defined;
+		            for( var i = 0; i < sheets.length; i++ ){
+		                if( sheets[ i ].href && sheets[ i ].href.indexOf( href ) > -1 ){
+		                    defined = true;
+		                }
+		            }
+		            if( defined ){
+		                ss.media = media || "all";
+		            }
+		            else {
+		                setTimeout( toggleMedia );
+		            }
+		        }
+		        toggleMedia();
+		        return ss;
+		    }
+		</script>
+
+		<script>
+    		loadCSS( "/assets/css/main-@@cacheBust.min.css" );
+		</script>
+
+		<noscript>
+			<link rel="stylesheet" href="/assets/css/main-@@cacheBust.min.css"
+		</noscript>
+	</head>
+	<body>

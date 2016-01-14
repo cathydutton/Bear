@@ -1,0 +1,11 @@
+/*
+  Layout
+  ----------------------------------- */
+
+header,
+footer,
+section {
+  @include clearfix;
+  padding: 1% 5%;
+  width: 100%;
+}

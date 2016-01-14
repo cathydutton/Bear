@@ -1,6 +1,20 @@
 # Bear
 
-Bear is a starting point for any web project. It includes a Sass folder structure and start up grid along with Gulp set up and configuration.
+Bear is my starting point for a static projects, it includes a Gulp workflow with Sass, JavaScript and PostCSS. All http requests are versioned and critical styling is inlined.
+
+## Features
+
+*   Versioned CSS and JavaScript files
+*   Inlined critical CSS
+*   HTML includes
+*   PostCSS
+*   Sass
+*   sass lint
+*   CSS lint
+*   Style stats
+*   Bundled and minified Javascript
+*   Browsersync
+*   Image compression
 
 ## Getting Started
 
@@ -13,20 +27,25 @@ npm install --global gulp
 Install gulp and the relevant plugins...
 
 ```
-npm install 
+npm install
 ```
 
-To run Gulp type the command...
+To build the project run gulp ...
 
 ```
 gulp
 ```
 
-To run Sass Lint first install scss-lint... 
-
+Whilst in development run gulp dev to watch files and update the browser  ...
 
 ```
-  gulp lint
+gulp dev
+```
+
+Run gulp live to start the CSS lint and stats tasks  ...
+
+```
+gulp live
 ```
 
 
@@ -37,21 +56,22 @@ If you have any questions get in touch:
 -   [@cathy_dutton](http://twitter.com/cathy_dutton)
 
 
-## Features
+### Features
 
 * HTML5.
 * Cross-browser compatible (Chrome, Firefox, IE9+, Safari).
 * Sass
 
-## Log
+### Log
 
 * V1.0.1 (21/03/2014) - Upload first version for testing.
 * V2.0.1 (25/06/2014) - Rebuild using Gulp to replace Grunt.
-* V2.0.2 (24/09/2014) - Remove FTP, Add Sass Lint, Refactor 
+* V2.0.2 (24/09/2014) - Remove FTP, Add Sass Lint, Refactor.
+* V3.0.1 (15/01/2015) - Completly re-vamp, improve Gulp set up and tasks.
 
 
 
-## License
+#### License
 ```
 The MIT License (MIT)
 

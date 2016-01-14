@@ -1,0 +1,45 @@
+/*
+  Generic
+  ----------------------------------- */
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  color: map-get($colours, 'black');
+  margin: 0;
+  // max-width: map-get($breakpoints, 'break-wide');
+  min-width: map-get($breakpoints, 'break-mobile');
+  padding: 0;
+  width: 100%;
+}
+
+blockquote {
+  background: #f3f3f3;
+  border: 1px solid #e3e3e3;
+  font-size: 1em;
+  margin: 0;
+  padding: 10px 7px;
+  width: 98%;
+}
+
+pre {
+  background: map-get($colours, 'off-white');
+  border: 1px solid darken(map-get($colours, 'off-white'), 20%);
+  font-size: 1em;
+  padding: 10px 7px;
+  width: 98%;
+}

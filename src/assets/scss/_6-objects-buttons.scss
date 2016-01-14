@@ -1,0 +1,32 @@
+/*
+    Button
+    ----------------------------------- */
+
+%button {
+  border: 0;
+  border-radius: .2em;
+  box-shadow: 0;
+  color: map-get($colours, 'white');
+  cursor: pointer;
+  font-size: 125%;
+  line-height: 1.8;
+  margin-bottom: .8em;
+  padding: .6em 1.4em .5em;
+}
+
+@mixin  button($button-background) {
+  @extend %button;
+  background-color: $button-background;
+
+  &:hover,
+  &:focus {
+    background-color: lighten($button-background, 10%);
+    transition: all .3s ease-in-out;
+  }
+
+}
+
+button,
+.button {
+  @include button (map-get($colours, 'accent'));
+}

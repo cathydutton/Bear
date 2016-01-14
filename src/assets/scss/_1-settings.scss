@@ -1,0 +1,30 @@
+/*
+  Settings
+  ----------------------------------- */
+
+/* COLORS */
+$colours: (
+  "black": #2a2a2a,
+  "white": #fff,
+  "grey-light": #aaa19a,
+  "grey-dark": #2a2a2a,
+  "accent": #ffa600,
+  "off-white": #f3f3f3,
+ );
+
+ /* BREAKPOINTS */
+$breakpoints: (
+  "break-mobile": 280px,
+  "break-phablet": 480px,
+  "break-tablet": 768px,
+  "break-desktop": 1020px,
+  "break-wide": 1280px
+);
+
+ /* TYPOGRAPHY */
+$font-stack: (
+  decorative: #{Impact, Charcoal, sans-serif},
+  general: #{'Helvetica Neue', Helvetica, Arial, sans-serif}
+);
+
+$line-height: 1.5;

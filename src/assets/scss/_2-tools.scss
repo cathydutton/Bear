@@ -1,0 +1,55 @@
+/*
+  Tools
+  ----------------------------------- */
+
+@mixin clearfix {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 100;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+ /* MEDIA QUERIES */
+@mixin mq($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+  // If $mq-breakpoint is a key that exists in
+  // $mq-breakpoints, get and use the value
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
+
+  @media screen and (min-width: #{$mq-breakpoint}) {
+    @content;
+  }
+}
+
+/* TYPOGRAPHY */
+@mixin typography($size) {
+  font-size: $size;
+
+  @include mq(break-desktop) {
+    font-size: $size * 1.3;
+  }
+
+}

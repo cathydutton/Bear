@@ -1,0 +1,92 @@
+{
+  "published": "2016-01-13T23:34:32.212Z",
+  "paths": [
+    "/Users/cathy/Documents/Sites/static/dist/assets/css/critical.css"
+  ],
+  "stylesheets": 1,
+  "styleElements": 0,
+  "size": 2629,
+  "dataUriSize": 0,
+  "ratioOfDataUriSize": 0,
+  "gzippedSize": 980,
+  "rules": 23,
+  "selectors": 43,
+  "declarations": 51,
+  "simplicity": 0.5348837209302325,
+  "averageOfIdentifier": 1.1627906976744187,
+  "mostIdentifier": 3,
+  "mostIdentifierSelector": "::selection",
+  "averageOfCohesion": 2.217391304347826,
+  "lowestCohesion": 6,
+  "lowestCohesionSelector": [
+    "blockquote"
+  ],
+  "totalUniqueFontSizes": 7,
+  "uniqueFontSizes": [
+    "1em",
+    "1.17em",
+    "1.5em",
+    "1.521em",
+    "1.95em",
+    "2em",
+    "2.6em"
+  ],
+  "totalUniqueFontFamilies": 1,
+  "uniqueFontFamilies": [
+    "Helvetica Neue, Helvetica, Arial, sans-serif"
+  ],
+  "totalUniqueColors": 2,
+  "uniqueColors": [
+    "#2A2A2A",
+    "#FFA600"
+  ],
+  "idSelectors": 0,
+  "universalSelectors": 3,
+  "unqualifiedAttributeSelectors": 0,
+  "javascriptSpecificSelectors": 0,
+  "importantKeywords": 0,
+  "floatProperties": 0,
+  "propertiesCount": [
+    {
+      "property": "font-size",
+      "count": 9
+    },
+    {
+      "property": "padding",
+      "count": 5
+    },
+    {
+      "property": "width",
+      "count": 5
+    },
+    {
+      "property": "color",
+      "count": 4
+    },
+    {
+      "property": "background",
+      "count": 3
+    },
+    {
+      "property": "line-height",
+      "count": 2
+    },
+    {
+      "property": "border",
+      "count": 2
+    },
+    {
+      "property": "margin",
+      "count": 2
+    },
+    {
+      "property": "content",
+      "count": 2
+    },
+    {
+      "property": "font-weight",
+      "count": 2
+    }
+  ],
+  "mediaQueries": 3
+}

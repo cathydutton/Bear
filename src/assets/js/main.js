@@ -1,0 +1,8 @@
+/*
+	JavaScript
+	------------------------------- */
+
+window.onload = function() {
+
+
+}

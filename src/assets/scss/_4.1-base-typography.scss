@@ -1,0 +1,38 @@
+/*
+    Base Typography
+    ----------------------------------- */
+
+html {
+  font-family: map-get($font-stack, 'general');
+  font-weight: 300;
+  line-height: $line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+.heading {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1,
+.heading--primary {
+  @include typography(2em);
+  line-height: 1;
+}
+
+h2,
+.heading--secondary {
+  @include typography(1.5em);
+}
+
+h3,
+.heading--tertiary {
+  @include typography(1.17em);
+}
+
+h4 {
+  font-size: 1.17em;
+}

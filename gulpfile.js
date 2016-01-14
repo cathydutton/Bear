@@ -1,127 +1,141 @@
-// Load plugins
-var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
-    clean = require('gulp-clean'),
-    rename = require('gulp-rename'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
-    open = require("gulp-open"),
-    plumber = require('gulp-plumber'),
-    scsslint = require('gulp-scss-lint');
+/*
+	Dependencies
+	----------------------------------- */
+
+	// Gulp + plugins
+	var gulp = require('gulp'),
+		plugins = require('gulp-load-plugins')();
+
+	// Non-gulp modules
+	plugins.path = require('path');
+	plugins.browserSync = require('browser-sync'),
+	plugins.runSequence = require('run-sequence');
+	plugins.eventStream = require('event-stream');
+
+	// Shared paths
+	var paths = {
+
+		// Build paths
+		base: __dirname,
+		dist: plugins.path.join(__dirname, 'dist'),
+		source: plugins.path.join(__dirname, 'src'),
+		tasks: plugins.path.join(__dirname, 'tasks'),
+
+		// Src assets
+		src: {
+			scss: plugins.path.join(__dirname, 'src/assets/scss'),
+			js: plugins.path.join(__dirname, 'src/assets/js'),
+			images: plugins.path.join(__dirname, 'src/assets/img')
+		},
+
+		// Build assets
+		build: {
+			css: plugins.path.join(__dirname, 'dist/assets/css'),
+			js: plugins.path.join(__dirname, 'dist/assets/js'),
+			images: plugins.path.join(__dirname, 'dist/assets/img')
+		},
+
+		// Node modules
+		modules: plugins.path.join(__dirname, 'node_modules')
+	};
 
 
+/*
+	Child tasks
+	----------------------------------- */
 
-// Run git init 
-// src is the root folder for git to initialize
-gulp.task('init', function(){
-  git.init();
-});
+	plugins.getModule = function(task) {
+		return require(plugins.path.join(paths.tasks, task))(paths, gulp, plugins);
+	}
 
+	gulp.task('critical-css', plugins.getModule('css/critical'));
+	gulp.task('main-css', plugins.getModule('css/main'));
+	gulp.task('scripts', plugins.getModule('javascript/scripts'));
+	gulp.task('html', plugins.getModule('html/html'));
+	gulp.task('inject', plugins.getModule('html/inject'));
+	gulp.task('image-optimise', plugins.getModule('images/optimise'));
+	gulp.task('watch', plugins.getModule('watch'));
+	gulp.task('browser-sync', plugins.getModule('browser-sync'));
 
-// Styles
-gulp.task('styles', function() {
-  return gulp.src('src/sass/style.scss')
-     .pipe(plumber())
-    .pipe(sass({ style: 'expanded', }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('build/css'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(minifycss())
-    .pipe(gulp.dest('build/css'))
-    .pipe(livereload());
-});
+/*
+	Utility tasks
+	----------------------------------- */
 
-// Scripts
-gulp.task('scripts', function() {
-  return gulp.src('src/js/**/*.js')
-     .pipe(plumber())
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('build/js'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(uglify())
-    .pipe(gulp.dest('build/js'))
-    .pipe(livereload());
-});
+	// Clean build directory
+	var clean = require('gulp-clean');
 
-// Images
-gulp.task('images', function() {
-  return gulp.src('src/img/**/*')
-     .pipe(plumber())
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('build/img'))
-    .pipe(livereload());
-});
-
-// HTML
-gulp.task('html', function() {
-    return gulp.src("*.html")
-        .pipe(plumber())
-        .pipe(gulp.dest(''))
-        .pipe(livereload());
-})
+	gulp.task('clean', function() {
+		return gulp.src(plugins.path.join(paths.dist))
+	    .pipe(clean());
+	});
 
 
-// Build task
-gulp.task('build', function() {
-    gulp.start('styles', 'scripts', 'images', 'html');
-});
+	// Sass Lint
+  var scsslint = require('gulp-scss-lint'),
+  plumber = require('gulp-plumber');
+
+  gulp.task('scss-lint', function() {
+		return gulp.src(plugins.path.join(paths.src.scss, '/**/*.scss'))
+    .pipe(plumber())
+    .pipe(scsslint({
+      'config': 'default.yml',
+      'reporterOutput': 'scssReport.json',
+    }))
+    //.pipe(scsslint.failReporter()) // Fail on warnings & errors
+    .pipe(scsslint.failReporter('E')) // Fail on set errors
+    // .on('error', function (err) {
+    //       console.log(err);
+    //       process.exit(1);
+    // })
+  });
 
 
-// Watch Dev
-gulp.task('watch', function() {
+	// CSS Lint
+	var csslint = require('gulp-csslint')
 
-  // Watch .scss files
-  gulp.watch('src/sass/**/*.scss', ['styles']);
+  gulp.task('css-lint', function() {
+    return gulp.src(plugins.path.join(paths.build.css, '*.css'))
+      .pipe(csslint({
+        'config': '.csslintrc',
+        'shorthand': false
+      }))
+      .pipe(csslint.reporter());
+  });gulp
 
-  // Watch .js files
-  gulp.watch('src/js/**/*.js', ['scripts']);
+	// Style stats
+	var stylestats = require('gulp-stylestats');
 
-  // Watch image files
-  gulp.watch('src/img/**/*', ['images']);
+	gulp.task('stylestats', function () {
+	  return gulp.src(plugins.path.join(paths.build.css, '*.css'))
+	    .pipe(stylestats({
+	      type: 'json',
+	      outfile: true
+	    }))
+	    .pipe(gulp.dest('./stats/'));
+	});
 
-  // Watch html files
-  gulp.watch('**/*.html', ['html']);
+/*
+	Main tasks
+	----------------------------------i- */
 
-});
+	// Shared build tasks
+	gulp.task('build', ['clean'] ,function(callback) {
+		plugins.runSequence('html', ['critical-css', 'main-css', 'scripts', 'image-optimise'], callback);
+	});
 
+	// Default tasks
+	gulp.task('default', ['clean'] , function(callback) {
+		plugins.runSequence('build', 'inject', callback);
+	});
 
-// Open task
-gulp.task("open", function(){
-  var options = {
-    // url: "http://project.dev/",
-  };
-  gulp.src("./index.html")
-  .pipe(open("", options));
-});
+	// Development tasks
+	gulp.task('dev', function(callback) {
+		plugins.runSequence('build', 'inject', ['watch', 'browser-sync'], callback);
+	});
 
-// Lint
-
-gulp.task('lint', function() {
-  gulp.src('src/sass/**/*.scss')
-    .pipe(scsslint());
-});
-
-
-
-/* TASKS
-========================================================================== */
-
-
-// Default task
-gulp.task('default', [ 'open', 'watch', 'build' ]);
-
-
-// Clean Task
-gulp.task('clean', function() {
-  return gulp.src(['build/css/', 'build/js', 'build/ig'], {read: false})
-    .pipe(clean());
-});
-
+	// Live tasks
+	gulp.task('live', function(callback) {
+		plugins.runSequence('build-live', 'inject', callback);
+		gulp.start('css-lint', callback);
+		gulp.start('stylestats', callback);
+	});

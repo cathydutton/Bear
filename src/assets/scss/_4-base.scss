@@ -1,0 +1,48 @@
+/*
+    Base
+    ----------------------------------- */
+
+// ANCHORS
+a {
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: map-get($colours, 'accent');
+  transition: all .3s ease-in-out;
+}
+
+// SELECT
+::selection {
+  background: lighten(map-get($colours, 'accent'), 25%);
+}
+
+// IMGAES
+img {
+  image-rendering: auto;
+}
+
+// SVG
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+// LIST ITEMS
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+
+  &:before {
+    color: map-get($colours, 'accent');
+    content: '•';
+    padding-right: .6em;
+  }
+
+}

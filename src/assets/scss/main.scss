@@ -1,0 +1,19 @@
+/*
+    Main browser styles
+    ----------------------------------- */
+
+@import '1-settings';
+@import '2-tools';
+@import '3-generic';
+@import '4-base';
+@import '4.1-base-typography';
+@import '5-layout';
+
+ /* Objects */
+@import '6-objects-buttons';
+
+ /* Modules */
+@import '7-component-header';
+@import '7-component-footer';
+
+ /* Add all new partials here */
