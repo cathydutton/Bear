@@ -18,12 +18,6 @@ Bear is my starting point for a static projects, it includes a Gulp workflow wit
 
 ## Getting Started
 
-If Gulp is not already installed run
-
-```
-npm install --global gulp
-```
-
 Install gulp and the relevant plugins...
 
 ```
