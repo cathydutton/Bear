@@ -39,10 +39,15 @@
     $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
   }
 
-  @media screen and (min-width: #{$mq-breakpoint}) {
+  @media screen and (max-width: #{$mq-breakpoint}) {
     @content;
   }
 }
+
+/* EXAMPLE USAGE OF MEDIA QUERIES */
+// @include mq(break-phablet) {
+//     display: none;
+// }
 
 /* TYPOGRAPHY */
 @mixin typography($size) {
