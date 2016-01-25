@@ -12,8 +12,7 @@ Bear is my starting point for a static projects, it includes a Gulp workflow wit
 *   sass lint
 *   CSS lint
 *   Style stats
-*   Bundled and minified Javascript
-*   Browsersync
+*   Live reload
 *   Image compression
 
 ## Getting Started
