@@ -120,22 +120,22 @@
 
 	// Shared build tasks
 	gulp.task('build', ['clean'] ,function(callback) {
-		plugins.runSequence('html', ['critical-css', 'main-css', 'scripts', 'image-optimise'], callback);
+		plugins.runSequence('html','critical-css', 'main-css', 'scripts', 'image-optimise', 'inject', callback);
 	});
 
 	// Default tasks
 	gulp.task('default', ['clean'] , function(callback) {
-		plugins.runSequence('build', 'inject', callback);
+		plugins.runSequence('build', callback);
 	});
 
 	// Development tasks
 	gulp.task('dev', function(callback) {
-		plugins.runSequence('build', 'inject', ['watch', 'browser-sync'], callback);
+		plugins.runSequence('build', ['watch', 'browser-sync'], callback);
 	});
 
 	// Live tasks
 	gulp.task('live', function(callback) {
-		plugins.runSequence('build-live', 'inject', callback);
+		plugins.runSequence('build', callback);
 		gulp.start('css-lint', callback);
 		gulp.start('stylestats', callback);
 	});
