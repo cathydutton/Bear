@@ -1,6 +1,6 @@
 # Bear
 
-Bear is my starting point for a static projects, it includes a Gulp workflow with Sass, JavaScript and PostCSS. All http requests are versioned and critical styling is inlined.
+Bear is a starting point for a static projects, it includes a Gulp workflow with Sass, JavaScript and PostCSS. All http requests are versioned and critical styling is inlined.
 
 ## Features
 
